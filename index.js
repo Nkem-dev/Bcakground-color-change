@@ -11,16 +11,18 @@ function getRandomColor() {
     return color;
 }
 
+let intervalId = null;
+
 btn.addEventListener("click", function() {
-    // setInterval(() => {
-        //  document.body.style.backgroundColor = getRandomColor();
-         // Generate two random colors for the gradient
-    const color1 = getRandomColor();
-    const color2 = getRandomColor();
-    // Set a linear gradient as the background
-    document.body.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;      
-    // }, 2000);
-   
+    if (intervalId === null) {
+        intervalId = setInterval(() => {
+            // Generate two random colors for the gradient
+            const color1 = getRandomColor();
+            const color2 = getRandomColor();
+            // Set a linear gradient as the background
+            document.body.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
+        }, 5000);
+    }
 });
 
 
